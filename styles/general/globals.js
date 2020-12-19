@@ -4,44 +4,28 @@ export const globals = css.global`
   * {
     -webkit-font-smoothing: antialiased;
   }
-  ::selection {
-    background: #fff7c7; /* WebKit/Blink Browsers */
+  html {
+    --nav-height: 72px;
+    --primary: #806b7b;
+    --secondary: #e2b5d4;
+    --tertiary: #e8c6e9;
+    --pink: #d3c5ea;
+    --purple: #c2c6ea;
+    --dark: #353535;
+    --grey: #c0cee5;
+    --spacing: 1rem;
   }
-  ::-moz-selection {
-    background: #fff7c7; /* Gecko Browsers */
-  }
-
   /*
  * Globals
  */
   body {
-    padding: 3rem 0 0 0;
-    color: #353535;
+    color: var(--dark);
     line-height: 1.5;
-    font-family: "PT Serif", serif;
+    font-family: "Work Sans", Arial, Helvetica, sans-serif;
     font-size: 20px;
   }
-  a {
-    color: #353535;
-    text-decoration: none;
-    background-repeat: repeat-x;
-    background-size: 2px 2px;
-    background-position: 0 23px;
-  }
-  .blog-main h1,
-  .blog-main .h1,
-  .blog-main h2,
-  .blog-main .h2,
-  .blog-main h3,
-  .blog-main .h3,
-  .blog-main h4,
-  .blog-main .h4,
-  .blog-main h5,
-  .blog-main .h5,
-  .blog-main h6,
-  .blog-main .h6 {
-    color: #353535;
-    text-align: left;
+  .container {
+    padding: 0 var(--spacing);
   }
   h1,
   h2,
@@ -49,7 +33,7 @@ export const globals = css.global`
   h4,
   h5,
   h6 {
-    font-family: "Lato", sans-serif;
+    font-family: "Work Sans", sans-serif;
   }
   h1 {
     margin-bottom: 1rem;
@@ -71,6 +55,18 @@ export const globals = css.global`
   p {
     margin-bottom: 2rem;
   }
+  a {
+    color: var(--primary);
+  }
+  a:visited {
+    color: var(--secondary);
+  }
+  a:focus {
+    outline: 2px dotted var(--grey)
+  }
+  a:hover, a:active {
+    color: var(--tertiary);
+  }
   pre,
   ul,
   ol {
@@ -84,37 +80,21 @@ export const globals = css.global`
   }
 
   /* Media Queries */
-  @media (max-width: 767px) {
-    .home,
-    .blog-main,
-    .container,
-    footer {
-      padding: 0 20px;
-    }
-    .post-part,
-    .blog-main {
-      font-size: 18px;
-    }
-    .post-part pre {
-      font-size: 14px;
-    }
-    h1 {
-      font-size: 36px;
-      line-height: 45px;
-    }
-    h2 {
-      font-size: 28px;
-    }
-    h3 {
-      font-size: 18px;
+  @media screen and (min-width: 600px) {
+    html {
+      --spacing: 2rem;
     }
   }
+  @media screen and (min-width: 1200px) {
+    html {
+      --spacing: 3rem;
+    }  
+  }
 
-  @media screen and (min-width: 768px) {
-    .post-part.single .block-citation,
-    .blog-main.single .block-citation {
-      margin: 20px 0;
-    }
+  @media screen and (min-width: 1600px) {
+    html {
+      --spacing: 4rem;
+    }  
   }
 
   /* vh vw fallback for ios7 */

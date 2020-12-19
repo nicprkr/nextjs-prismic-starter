@@ -19,7 +19,9 @@ const Project = ({ project }) => {
   if (project && project.data) {
     const hasTitle = RichText.asText(project.data.title).length !== 0;
     const title = hasTitle ? RichText.asText(project.data.title) : "Untitled";
-
+    if(project){
+      console.log("project");
+    } 
     return (
       <DefaultLayout>
         <Head>
@@ -33,7 +35,7 @@ const Project = ({ project }) => {
           <SliceZone sliceZone={project.data.body} />
         </div>
         <style jsx global>
-          {ProjectStyles}
+          {projectStyles}
         </style>
       </DefaultLayout>
     );
@@ -45,6 +47,7 @@ const Project = ({ project }) => {
 export async function getStaticProps({ params, preview = null, previewData = {} }) {
   const { ref } = previewData
   const project = await Client().getByUID("project", params.uid, ref ? { ref } : null) || {}
+  console.log(project);
   return {
     props: {
       preview,
@@ -56,7 +59,7 @@ export async function getStaticProps({ params, preview = null, previewData = {} 
 export async function getStaticPaths() {
   const documents = await queryRepeatableDocuments((doc) => doc.type === 'project')
   return {
-    paths: documents.map(doc => `/projects/${doc.uid}`),
+    paths: documents.map(doc => `/project/${doc.uid}`),
     fallback: true,
   }
 }

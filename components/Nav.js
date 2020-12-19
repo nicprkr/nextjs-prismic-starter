@@ -5,13 +5,15 @@ import { navStyles } from 'styles'
  * Site footer component
  */
 const Nav = () => (
-  <nav>
-   <ul>
-     <li>
-       <a href="/">
-         Home
+  <nav className="container">
+    <div className="site-logo">
+      {/* <img src="" alt="" /> */}
+      <a href="/">
+        <div className="site-logo--placeholder">logo</div>
        </a>
-     </li>
+
+    </div>
+   <ul className="nav-links">
      <li>       
        <a href="/about">
          About
@@ -23,7 +25,7 @@ const Nav = () => (
        </a>
        </li>
      <li>
-     <a href="/Blog">
+     <a href="/blog">
          Blog
        </a>
      </li>

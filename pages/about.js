@@ -6,13 +6,15 @@ import { RichText } from "prismic-reactjs";
 // Project components & functions
 import DefaultLayout from "layouts";
 import { Header } from "components/home";
+import { SliceZone } from "components/post";
 import { Client } from "utils/prismicHelpers";
 
 /**
  * About component
  */
-const About = ({ doc, posts }) => {
+const About = ({ doc }) => {
   if (doc && doc.data) {
+    console.log(doc.data)
     return (
       <DefaultLayout>
         <Head>
@@ -23,7 +25,9 @@ const About = ({ doc, posts }) => {
           headline={doc.data.headline}
           description={doc.data.description}
         />
-        {/* <PostList posts={posts} /> */}
+        <div className="main">
+          <SliceZone sliceZone={doc.data.body} />
+        </div>
       </DefaultLayout>
     );
   }

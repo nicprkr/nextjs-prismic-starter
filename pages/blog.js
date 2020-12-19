@@ -9,9 +9,9 @@ import { Header, PostList } from "components/home";
 import { Client } from "utils/prismicHelpers";
 
 /**
- * Homepage component
+ * Blog page component
  */
-const Home = ({ doc, posts }) => {
+const Blog = ({ doc, posts }) => {
   if (doc && doc.data) {
     return (
       <DefaultLayout>
@@ -36,7 +36,7 @@ export async function getStaticProps({ preview = null, previewData = {} }) {
 
   const client = Client()
 
-  const doc = await client.getSingle("homepage", ref ? { ref } : null) || {}
+  const doc = await client.getSingle("blog_home", ref ? { ref } : null) || {}
 
   const posts = await client.query(
     Prismic.Predicates.at("document.type", "post"), {
@@ -54,4 +54,4 @@ export async function getStaticProps({ preview = null, previewData = {} }) {
   }
 }
 
-export default Home;
+export default Blog;

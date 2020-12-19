@@ -1,5 +1,6 @@
 import Footer from "components/Footer";
 import Nav from "components/Nav";
+import FixedLinks from "components/FixedLinks";
 
 /**
  * Default layout component
@@ -7,6 +8,7 @@ import Nav from "components/Nav";
 const DefaultLayout = ({ children }) => (
   <div>
     <Nav />
+    <FixedLinks />
     <main>{children}</main>
     <Footer />
   </div>

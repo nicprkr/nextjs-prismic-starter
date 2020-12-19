@@ -17,6 +17,7 @@ const Footer = () => (
         Prismic
       </a>
     </p>
+
     <style jsx global>{footerStyles}</style>
   </footer>
 )
